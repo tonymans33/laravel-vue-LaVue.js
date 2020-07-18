@@ -7,3 +7,12 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 @import '~admin-lte/dist/css/adminlte.css';
+
+.router-link-exact-active{
+    background-color : #3490dc;
+    color : #ffffff !important;
+    i{
+        color: #ffffff !important;
+    }
+}
+

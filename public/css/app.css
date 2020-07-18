@@ -13087,6 +13087,34 @@ a.text-muted:hover {
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }@charset "UTF-8";
 
+.blue {
+  color: #3490dc;
+}
+
+.red {
+  color: #e3342f;
+}
+
+.purple {
+  color: #9561e2;
+}
+
+.green {
+  color: #38c172;
+}
+
+.teal {
+  color: #4dc0b5;
+}
+
+.orange {
+  color: #f6993f;
+}
+
+.indigo {
+  color: #6574cd;
+}
+
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -24013,5 +24041,14 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+.router-link-exact-active {
+  background-color: #3490dc;
+  color: #ffffff !important;
+}
+
+.router-link-exact-active i {
+  color: #ffffff !important;
 }
 
