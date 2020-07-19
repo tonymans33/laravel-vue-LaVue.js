@@ -6,10 +6,23 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
 
 import VueRouter from "vue-router";
+import {Form, HasError, AlertError} from 'vform';
+import moment from 'moment';
+import VueProgressBar from 'vue-progressbar';
+
+window.Vue = require('vue');
+window.Form = Form;
+
 Vue.use(VueRouter);
+
+Vue.use(VueProgressBar, {
+    color : 'rgb(92, 184, 92)',
+    failedColor : 'red',
+    height : '2px'
+
+});
 
 let routes = [
     { path : '/dashboard' , component : require('./components/Dashboard').default},
@@ -20,6 +33,14 @@ let routes = [
 const router = new VueRouter({
     mode : 'history',
     routes
+});
+
+Vue.filter('uptext', function(text){
+    return text.toUpperCase();
+});
+
+Vue.filter('myDate', function (created) {
+    return moment(created).format('MMMM Do YYYY')
 });
 
 
@@ -36,6 +57,9 @@ const router = new VueRouter({
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component(HasError.name, HasError);
+Vue.component(AlertError.name, AlertError);
+
 
 
 /**
