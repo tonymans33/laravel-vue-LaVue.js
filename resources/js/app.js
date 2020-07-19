@@ -11,6 +11,18 @@ import VueRouter from "vue-router";
 import {Form, HasError, AlertError} from 'vform';
 import moment from 'moment';
 import VueProgressBar from 'vue-progressbar';
+import swal from 'sweetalert2';
+window.swal = swal;
+
+const toast = swal.mixin({
+   toast : true,
+   position :'top-end',
+   showConfirmButton : false,
+   icon: 'success',
+   timer : 3000
+});
+
+window.toast = toast;
 
 window.Vue = require('vue');
 window.Form = Form;
@@ -21,8 +33,9 @@ Vue.use(VueProgressBar, {
     color : 'rgb(92, 184, 92)',
     failedColor : 'red',
     height : '2px'
-
 });
+
+window.Fire = new Vue();
 
 let routes = [
     { path : '/dashboard' , component : require('./components/Dashboard').default},
@@ -42,6 +55,7 @@ Vue.filter('uptext', function(text){
 Vue.filter('myDate', function (created) {
     return moment(created).format('MMMM Do YYYY')
 });
+
 
 
 

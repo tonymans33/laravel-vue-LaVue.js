@@ -1,3 +1,4 @@
+
 <template>
     <div class="container ">
         <div class="row ">
@@ -128,17 +129,37 @@
 
         methods : {
             loadUsers(){
-                axios.get('api/user').then(({data}) => (this.users = data.data))
+                axios.get('api/user').then(({data}) => (this.users = data.data));
+                this.$Progress.finish();
             },
             createUser(){
                 this.$Progress.start();
-                this.form.post('api/user');
-                this.$Progress.finish();
+                this.form.post('api/user').then(() => {
+                    Fire.$emit('AfterCreate');
+                    $('#addNew','','').modal('hide');
+                    toast.fire({
+                        type: 'success',
+                        title : 'User Created Successfully!'
+                    });
+                    this.$Progress.finish();
+                }).catch(() => {
+                    this.$Progress.finish();
+                    toast.fire({
+                        type: 'error',
+                        title : 'Please Check your data again !',
+                        icon : 'error'
+                    });
+                });
             }
         },
 
         created() {
+            this.$Progress.start();
             this.loadUsers();
+            Fire.$on('AfterCreate', () => {
+               this.loadUsers();
+            });
+            //setInterval(() => this.loadUsers(), 3000);
         }
     }
 </script>

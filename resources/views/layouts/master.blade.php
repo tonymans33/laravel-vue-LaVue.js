@@ -58,7 +58,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                  style="opacity: .8">
             <span class="brand-text font-weight-light">LaVue</span>
         </a>
-
         <!-- Sidebar -->
         <div class="sidebar">
             <!-- Sidebar user panel (optional) -->
@@ -165,3 +164,5 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
