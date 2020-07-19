@@ -24052,3 +24052,9 @@ a.text-dark:focus {
   color: #ffffff !important;
 }
 
+#ce-bt {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+}
+
