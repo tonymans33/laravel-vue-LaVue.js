@@ -2,7 +2,7 @@
 <template>
     <div class="container ">
         <div class="row ">
-            <div class="col-md-12">
+            <div class="col-md-12" data-aos="fade-up" data-aos-delay="100">
                 <div class="card mt-5">
                     <div class="card-header">
                         <h3 class="card-title">Users table</h3>
@@ -92,7 +92,7 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button id="ce-bt" s v-show="editmode" type="submit" class="btn btn-success">Update</button>
+                            <button id="ce-bt"  v-show="editmode" type="submit" class="btn btn-success">Update</button>
                             <button id="ce-bt"  v-show="!editmode" type="submit" class="btn btn-success ">Create</button>
                         </div>
                     </form>
@@ -105,6 +105,7 @@
 </template>
 
 <script>
+
     export default {
 
         data(){
@@ -143,7 +144,8 @@
             newModal(){
                 this.editmode = false;
                 this.form.reset();
-                $('#addNew','','').modal('show');
+                this.form.clear();
+                $("#addNew").modal('show');
             },
 
             editModal(user){

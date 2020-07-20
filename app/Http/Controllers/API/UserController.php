@@ -8,6 +8,7 @@ use App\Http\Requests\User\UpdateUserRequest;
 use App\Http\Resources\User\UserResource;
 use App\User;
 use Carbon\Carbon;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Hash;
@@ -42,11 +43,11 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return JsonResponse
+     * @return Authenticatable
      */
-    public function show($id)
+    public function profile()
     {
-        return response()->json(['data' => new UserResource(User::find($id))]);
+        return new UserResource(auth()->user());
     }
 
     /**

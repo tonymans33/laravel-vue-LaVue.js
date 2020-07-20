@@ -75,6 +75,16 @@ Vue.filter('myDate', function (created) {
 /* end vue filters functions */
 
 
+/*animation*/
+$(document).ready(function () {
+    AOS.init({
+        easing: 'ease',
+        duration: 1800,
+        once: true
+    });
+});
+/*end animation*/
+
 
 /*vue components*/
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
